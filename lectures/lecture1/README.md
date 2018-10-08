@@ -4,7 +4,7 @@
 
 ```
 – Установить необходимый софт.
-– Прочитать "4. Неформальное введение в Python" до заголовка "5.7. Подробнее об определении функций". в [учебнике](https://ru.wikibooks.org/wiki/Python/Учебник_Python_3.1)
+– Прочитать "4. Неформальное введение в Python" до заголовка "5.7. Подробнее об определении функций" в "Учебник_Python_3.1".
 ```
 
 [Ссылка на домашнее задание](https://github.com/amm-vsu-2015/4y1s_python/tree/master/homeworks/hw1)
@@ -51,22 +51,22 @@
 
 ### Руководства по библиотекам
 
-> NumPy and SciPy, Matplotlib
+NumPy and SciPy, Matplotlib
 
 - [An introduction to NumPy and SciPy](https://engineering.ucsb.edu/~shell/che210d/numpy.pdf)
 - [Numerical Routines: SciPy and NumPy](http://www.physics.nyu.edu/pine/pymanual/html/chap9/chap9_scipy.html)
 - [Intermediate Python: Using NumPy, SciPy, and Matplotlib](http://snowball.millersville.edu/~adecaria/ESCI386P/esci386-lesson19-misc.pdf)
 
-> NumPy
+NumPy
 
 - [NumPy, часть 1: начало работы](https://pythonworld.ru/numpy/1.html)
 - [NumPy, часть 2: базовые операции над массивами](https://pythonworld.ru/numpy/2.html)
 
-> SciPy
+SciPy
 
 - [Руководство SciPy](http://san-tit.blogspot.ru/p/blog-page_3.html)
 
-> Matplotlib
+Matplotlib
 
 - [Matplotlib (manual)](http://matplotlib.org/Matplotlib.pdf)
 - [Matplotlib gallery](http://matplotlib.org/gallery)
