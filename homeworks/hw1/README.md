@@ -17,4 +17,43 @@
 
 Если кто-то захочет самостоятельно установить пакеты и python без ёмкого Anaconda.
 
-...
+Устанавливаем Python: (mac/linux)
+
+```shell
+Обычная установка для Mac через Homebrew:
+
+brew install python # начиная с версии 3.4, пакетный менеджер pip поставляется с python.
+
+
+# https://github.com/pyenv/pyenv
+Для Mac через pyenv: (благодаря различным средам, можно изолировать приложения, скачивать много версий python)
+
+brew install pyenv # install pyenv
+echo 'eval "$(pyenv init -)"' >> ~/Projects/config/env.sh # configure environment
+exec $SHELL # restart your $shell (bash or other)
+
+pyenv install 3.7.0 # install python 3.7
+
+# На этом этапе можно установить Anaconda отдельно (либо позже использовать пакеты, вместо неё)
+
+pyenv install anaconda3-4.1.1 # установка anaconda
+cd path/to/directory # переход в директорию проекта
+pyenv local anaconda3-4.1.1 # установка anaconda как версии python (local – только для этой директории)
+pyenv rehash # как бы перехешить настройки
+
+pyenv versions 
+  system
+  2.7.12
+  3.5.2
+* anaconda3-4.1.1 (set by /Users/your_account/path/to/directory/.python-version)
+
+```
+
+Устанавливаем пакеты:
+
+```shell
+pip install numpy # и так далее
+pip list # проверить установленный пакеты
+```
+
+
