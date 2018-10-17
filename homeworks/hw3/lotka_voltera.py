@@ -19,8 +19,8 @@ alpha = 0.1; beta = 0.015; gamma = 0.0225; delta = 0.02
 def solveRightPart(z, t):
    x = z[0]
    y = z[1]
-   dxdt= x*(alpha-beta*y)
-   dydt=-y*(gamma-delta*x)
+   dxdt=  x * (alpha - beta * y)
+   dydt= -y * (gamma - delta * x)
    return [dxdt, dydt]
 
 # время в виде массива элементов от 0 до 300, разбитое равно на 1000 элементов

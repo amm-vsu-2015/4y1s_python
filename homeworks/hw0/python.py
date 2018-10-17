@@ -10,10 +10,6 @@ def printArray(array):
 
 # setup array
 a = [1, 'лол', 4.]
-b = [[1, 2], [3, 4], [5, 6]]
 
 # call function with parameter
 printArray(a)
-
-
-print(b[1][0])
