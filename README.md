@@ -22,3 +22,4 @@
 - [hw0 » Игрался с синтаксисом python](https://github.com/amm-vsu-2015/4y1s_python/tree/master/homeworks/hw0)
 - [hw1 » Установка софта](https://github.com/amm-vsu-2015/4y1s_python/tree/master/homeworks/hw1)
 - [hw2 » Поиск простых корней для функции методом бисекции](https://github.com/amm-vsu-2015/4y1s_python/tree/master/homeworks/hw2)
+- [hw3 » Дополнить программы, работа с NumPy, Matplotlib](https://github.com/amm-vsu-2015/4y1s_python/tree/master/homeworks/hw3)

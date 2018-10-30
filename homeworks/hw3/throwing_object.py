@@ -5,54 +5,87 @@ dv(t)/dt = -g - (A*v(t) + B*v(t)^3)/m
 """
 
 import numpy as np
-# import scipy.integrate as si
+import matplotlib
+# create environment for matplotlib.
+# only uses by pyenv
+matplotlib.use('TkAgg')
 from scipy.integrate import odeint
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plot
 
-#
-z0 = 0.0     # m
-v0 = 500.0   # m/sec
-m = 0.009    # kg
-g = 9.8      # m/sec^2
-A = 1.e-5    # N*sec/m
-B = 1.e-8    # N*sec^3/m^3
-tm = 110.0   # sec?
+startPosition = 0.0  # m
+startSpeed = 500.0   # m/sec
+mass = 0.009   # kg
+gravity = 9.8  # m/sec^2
+A = 1.e-5      # N*sec/m
+B = 1.e-8      # N*sec^3/m^3
+maxThrowingTime = 110.0  # - не имеет значения размер
 
 # вычисление правых частей уравнения
-def system(f, t):
-    global m,g,A,B
-    z = f[0]
-    v = f[1]
-    dzdt = v
-    dvdt = -g - (A*v + B*v**3)/m
-    return [dzdt,dvdt]
+def solveDiff(f, t):
+    global mass, gravity, A, B
+    dzdt = f[1]
+    dvdt = -gravity - (A * dzdt + B * dzdt**3)/mass
+    return [dzdt, dvdt]
 
-nt = 1000
-# от 0 до tm разбиваются на nt узлов
-t = np.linspace(0.,tm,nt)
+def calc(time, positions):
+    throwingTime = 0.0
+    maxHeight = 0.0
+    climbTime = 0.0
+    downTime = 0.0
+
+    for idx in range(0, len(time) - 1, 1):
+        if positions[idx] >= 0.0:
+            throwingTime = time[idx]
+
+        if positions[idx] >= maxHeight:
+            maxHeight = positions[idx]
+            climbTime = time[idx]
+
+        downTime = throwingTime - climbTime
+
+    return [throwingTime, maxHeight, climbTime, downTime]
+
+segmentsCount = 1000 # nt
+# от 0 до maxThrowingTime разбиваются на segmentsCount узлов
+time = np.linspace(0., maxThrowingTime, segmentsCount) # t
 # вычисляем ДУ
-sol = odeint(system,[z0,v0],t)
-z = sol[:,0]
-v = sol[:,1]
-# строим график
-plt.plot(t,v,'r-',linewidth=3) # график скорости
-plt.plot(t,[0.0]*nt,'g-',linewidth=1) # график z(t)
-# задаем график
-plt.axis([0, tm, -250., 500.])
-# выводим сетку на графике
-plt.grid(True)
-# легенда
-plt.xlabel("t")
-plt.ylabel("v(t)")
-# сохранить в файл
-plt.savefig("v.pdf",dpi=300)
-# вывести
-plt.show()
+differentialResult = odeint(solveDiff, [startPosition, startSpeed], time)
+positions = differentialResult[:, 0]
+speeds = differentialResult[:, 1]
 
-plt.plot(t,z,'b-',linewidth=3)
-plt.axis([0, tm+1., 0., 3500.])
-plt.grid(True)
-plt.xlabel("t")
-plt.ylabel("z(t)")
-plt.savefig("z.pdf",dpi=300)
-plt.show()
+(throwingTime, maxHeight, climbTime, downTime) = calc(time, positions)
+
+print(" [!] Max height is %02d" % maxHeight)
+print(" [!] throwing time is %02d" % throwingTime)
+print(" [!] climb time is %02d" % climbTime)
+print(" [!] dropping down time is %02d" % downTime)
+
+diff = abs(climbTime - downTime)
+
+if climbTime >= downTime:
+    print(" [!] Climbing time is longer than dropping down time and equals is %2d" % diff)
+else:
+    print(" [!] Dropping down time is longer than climbing time and equals is %2d" % diff)
+
+# строим график
+plot.plot(time, speeds, 'r-', linewidth = 3) # график скорости
+plot.plot(time, [0.0] * segmentsCount, 'g-', linewidth = 1) # график z(t)
+# задаем график
+plot.axis([0, maxThrowingTime, -250., 500.])
+# выводим сетку на графике
+plot.grid(True)
+# легенда
+plot.xlabel("time")
+plot.ylabel("speed(time)")
+# сохранить в файл
+plot.savefig("graph_speed.pdf", dpi = 300)
+# вывести
+plot.show()
+
+plot.plot(time, positions,'b-', linewidth = 3)
+plot.axis([0, throwingTime, 0., maxHeight])
+plot.grid(True)
+plot.xlabel("time")
+plot.ylabel("height(time)")
+plot.savefig("graph_throwing.pdf", dpi = 300)
+plot.show()
