@@ -48,7 +48,7 @@ def analyzePath(time, positions):
 
 segmentsCount = 1000 # nt
 # от 0 до maxThrowingTime разбиваются на segmentsCount узлов
-time = np.linspace(0., maxThrowingTime, segmentsCount) # t
+time = np.linspace(0., maxThrowingTime, segmentsCount)
 # вычисляем ДУ
 differentialResult = odeint(solveDiff, [startPosition, startSpeed], time)
 positions = differentialResult[:, 0]
@@ -57,9 +57,9 @@ speeds = differentialResult[:, 1]
 (throwingTime, maxHeight, climbTime, downTime) = analyzePath(time, positions)
 
 print(" [!] Max height is %02d" % maxHeight)
-print(" [!] throwing time is %02d" % throwingTime)
-print(" [!] climb time is %02d" % climbTime)
-print(" [!] dropping down time is %02d" % downTime)
+print(" [!] Throwing time is %02d" % throwingTime)
+print(" [!] Climb time is %02d" % climbTime)
+print(" [!] Dropping down time is %02d" % downTime)
 
 diff = abs(climbTime - downTime)
 
