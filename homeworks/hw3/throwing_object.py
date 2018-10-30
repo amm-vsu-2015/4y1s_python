@@ -27,7 +27,8 @@ def solveDiff(f, t):
     dvdt = -gravity - (A * dzdt + B * dzdt**3)/mass
     return [dzdt, dvdt]
 
-def calc(time, positions):
+# path analyzes and return some points
+def analyzePath(time, positions):
     throwingTime = 0.0
     maxHeight = 0.0
     climbTime = 0.0
@@ -53,7 +54,7 @@ differentialResult = odeint(solveDiff, [startPosition, startSpeed], time)
 positions = differentialResult[:, 0]
 speeds = differentialResult[:, 1]
 
-(throwingTime, maxHeight, climbTime, downTime) = calc(time, positions)
+(throwingTime, maxHeight, climbTime, downTime) = analyzePath(time, positions)
 
 print(" [!] Max height is %02d" % maxHeight)
 print(" [!] throwing time is %02d" % throwingTime)
