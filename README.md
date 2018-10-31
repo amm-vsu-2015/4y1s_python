@@ -16,7 +16,7 @@
 ### Лекции
 
 -   [Лекция 1: Введение, установка среды, рекомендуемые пакеты, литература.](https://github.com/amm-vsu-2015/4y1s_python/tree/master/lectures/lecture1)
--   [Лекция 2:Вводное занятие. Рекомендации по литературе и требования по софту.](https://github.com/amm-vsu-2015/4y1s_python/tree/master/lectures/lecture2)
+-   [Лекция 2: Вводное занятие. Рекомендации по литературе и требования по софту.](https://github.com/amm-vsu-2015/4y1s_python/tree/master/lectures/lecture2)
 -   [Лекция 3: Пользовательские модули и пакеты.](https://github.com/amm-vsu-2015/4y1s_python/tree/master/lectures/lecture3)
 
 ### Список задач по курсу
