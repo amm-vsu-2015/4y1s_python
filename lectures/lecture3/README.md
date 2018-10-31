@@ -11,7 +11,7 @@ import matplotlib # импортировать весь модуль. Можно
 from matplotlib import *
 ```
 
-Пример создания и использования пользовательского модуля в папке [modules](https://github.com/amm-vsu-2015/4y1s_python/tree/master/lectures3/modules/):
+Пример создания и использования пользовательского модуля в папке [modules](https://github.com/amm-vsu-2015/4y1s_python/tree/master/lectures/lecture3/modules/):
 Необходимо запустить файл `t0-a_py.py`, который импортирует другие модули.
 
 Терминология:
