@@ -16,7 +16,7 @@ import matplotlib.pyplot as plot
 alpha = 0.1; beta = 0.015; gamma = 0.0225; delta = 0.02
 
 # посчитать правую часть ДУ
-def solveRightPart(z, t):
+def solveDiff(z, t):
    x = z[0]
    y = z[1]
    dxdt=  x * (alpha - beta * y)
@@ -30,7 +30,7 @@ x0 = 1.0
 y0 = 1.0
 
 # подсчет производной
-differentialResult = odeint(solveRightPart, [x0, y0], time)
+differentialResult = odeint(solveDiff, [x0, y0], time)
 # значения прозводной в каждый момент времени time
 values = differentialResult[:, 1]
 # значения времени для производных values
